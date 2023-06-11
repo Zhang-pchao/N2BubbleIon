@@ -1,0 +1,157 @@
+{
+    "model": {
+      "type_map":           ["H","O","N"],      
+	  "descriptor": {
+		"_comment":         "if type = se_a_tpe: can’t apply compression method while using atom type embedding",
+        "type":             "se_e2_a",
+		"_comment":         "sel: [16 32 32] means maximal number of neighbors = 16H 32O 32N",
+		"_comment":         "sel: auto:1.1 means automatically counts maximal number of neighbors*1.1",
+        "sel":              "auto:1.1",
+        "rcut_smth":        0.5,
+        "rcut":             6.0,
+        "neuron":           [25,50,100],
+		"activation_function": "tanh",
+        "resnet_dt":        false,
+		"_comment":         "axis_neuron: Size of the submatrix of G (embedding matrix)",
+        "axis_neuron":      16,
+		"seed":             32917519,
+	    "_comment":		    "descriptor that's all--------------------------------------------------------------"		
+      },
+      "fitting_net": {
+		"_comment":         "other types: dipole or polar",
+		"type":             "ener",
+        "neuron":           [240,240,240],
+		"activation_function": "tanh",
+        "resnet_dt":        true,
+		"seed":             32194363,
+	    "_comment":		    "fitting_net that's all-------------------------------------------------------------"		
+      },  
+    "_comment": " model that's all------------------------------------------------------------------------------"
+    },
+
+    "loss": {
+		"_comment": "loss = pref_e * loss_e + pref_f * loss_f + pref_v * loss_v",
+		"_comment": "pref_f(t) = start_pref_f * ( lr(t) / start_lr ) + limit_pref_f * ( 1 - lr(t) / start_lr )",
+        "start_pref_e":      100,
+        "limit_pref_e":      1.0,
+        "start_pref_f":      100,
+        "limit_pref_f":      1.0,
+        "start_pref_v":      0.0,
+        "limit_pref_v":      0.0,
+	    "_comment": " loss that's all-----------------------------------------------------------------------------"
+    },
+
+    "learning_rate": {
+		"_comment": "lr(t) = start_lr * decay_rate ^ ( training step / decay_steps )",
+		"_comment": "decay_rate and decay_steps are automatically determined by start_lr, stop_lr and training step)",
+        "type":              "exp",
+        "start_lr":          0.001,
+	"stop_lr":           1e-08,
+	    "_comment": " learning_rate that's all--------------------------------------------------------------------"
+    },
+
+    "training": {
+        "numb_steps":        15000000,
+	"seed":              12162617,
+        "disp_file":         "lcurve.out",
+        "disp_freq":         1000,
+        "numb_test":         10,
+        "save_freq":         100000,
+        "save_ckpt":         "model.ckpt",
+        "disp_training":     true,
+        "time_training":     true,
+        "profiling":         false,
+        "profiling_file":    "timeline.json",
+	"training_data": {
+	    "systems":		 [
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2O/sys.H128O64",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/sys.H126O64",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/sys.H127O64",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/sys.H129O64",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/sys.H130O64",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix/sys.H128O64N6",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mixion/sys.H126O64N6",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mixion/sys.H127O64N6",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mixion/sys.H129O64N6",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mixion/sys.H130O64N6",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix2ion/sys.H116O59N16",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix2ion/sys.H117O59N16",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix2ion/sys.H119O59N16",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix2ion/sys.H120O59N16",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/sys.N80",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/sys.H200O100N60",
+
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2O/init.000",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2O/init.001",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2O/init.002",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2O/init.003",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2O/init.004",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/waterion_testset_aimd_dump2/1H3O",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/waterion_testset_aimd_dump2/2H3O",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/waterion_testset_aimd_dump2/1OH",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/waterion_testset_aimd_dump2/2OH",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix/init.000",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix/init.001",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix/init.002",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix/init.003",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix/init.004",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mixion/init.000",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mixion/init.001",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mixion/init.002",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mixion/init.003",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix2ion/init.000",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix2ion/init.001",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix2ion/init.002",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix2ion/init.003",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.000",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.001",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.002",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.003",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.004",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.005",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.006",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.007",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.008",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/N2/init.009",
+
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.000",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.001",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.002",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.003",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.004",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.005",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.006",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.007",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.008",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.009",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.010",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.011",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.012",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.013",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.014",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.015",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.016",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.017",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.018",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/interface/init.019"
+
+		],
+	    "batch_size":	"auto",
+            "auto_prob": 	"prob_sys_size; 0:16:0.75; 16:68:0.25",	
+	    "_comment": " training_data that's all--------------------------------------------------------------------"
+		},
+		"_comment": " training that's all-------------------------------------------------------------------------"		
+    }
+}
