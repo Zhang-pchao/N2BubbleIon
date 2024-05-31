@@ -1,0 +1,81 @@
+{
+  "train": [
+    {
+      "machine": {
+	    "machine_type": "slurm",
+        "hostname": "xxxxxxxxxxxx",
+        "password": "xxxxxxxxxxxx",
+        "port": 22,
+        "username": "xxxxxxxxx",
+        "work_path": "/to/your/path/System/N2/tmp/train"
+      },
+      "resources": {
+        "numb_gpu": 1,
+		"module_list": ["anaconda3"],	
+		"source_list": ["activate dpmd_gpu_v2.1.0"],
+        "time_limit": "1000:00:00"
+      },
+      "command": "/to/your/path/anaconda3/envs/dpmd_gpu_v2.1.0/bin/dp",
+      "group_size": 1,
+	  "python_path": "/to/your/path/anaconda3/envs/dpmd_gpu_v2.1.0/bin/python3.9"
+    }
+  ],
+
+  "model_devi": [
+    {
+      "machine": {
+		"machine_type": "slurm",
+        "hostname": "xxxxxxxxxxxx",
+        "password": "xxxxxxxxxxxx",
+        "port": 22,
+        "username": "xxxxxxxxx",
+        "work_path": "/to/your/path/System/N2/tmp/model_devi"
+      },
+      "resources": {
+        "numb_gpu": 1,
+		"module_list": ["anaconda3"],	
+		"source_list": ["activate dpmd_gpu_v2.1.0"],
+        "time_limit": "1000:00:00"
+      },
+      "command": "/to/your/path/anaconda3/envs/dpmd_gpu_v2.1.0/bin/lmp",
+      "group_size": 2
+    }
+  ],
+
+  "fp": [
+    {
+      "machine": {
+		"machine_type": "slurm",
+        "hostname": "xxxxxxxxxxxx",
+        "password": "xxxxxxxxxxxx",
+        "port": 22,
+        "username": "xxxxxxxxx",		
+        "work_path": "/to/your/path/DP/tmp/N2/fp"
+      },
+      "resources": {
+	    "cvasp": false,
+        "task_per_node": 128,
+        "numb_node": 1,
+        "cpus_per_task": 1,
+        "account": "xxxxxxxxx",
+        "partition": "xxxxxxxxx",
+        "qos": "xxxxxxxxx",
+        "allow_failure": true,
+        "ratio_failue": 0.05,
+        "with_fp_mpi": true,
+		"envs":	{
+			"OMP_NUM_THREADS": 1
+		},
+		"module_list": [
+				"vasp/5"
+		],
+        "time_limit": "24:00:00"
+	    },
+      "command": "vasp_std",
+      "group_size": 50
+    }
+  ]
+}
+
+
+

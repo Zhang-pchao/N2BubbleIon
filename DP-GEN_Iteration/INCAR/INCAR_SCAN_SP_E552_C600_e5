@@ -1,0 +1,42 @@
+SYSTEM=N2-H2O-Ion_SPE
+
+METAGGA  = SCAN
+LASPH    = .TRUE.
+#IVDW     = 12 							# DFT-D3(BJ)
+
+# Global Parameters
+#ISTART  = 0                            # Read existing wavefunction; if there
+#ICHARG  = 2                            # Non-self-consistent: GGA/LDA band structures
+#ISPIN   = 2                            # spin polarized calculations (collinear) are performed
+NELECT   = 552                          # number of valence electrons 
+LREAL    = A                            # Projection operators: automatic
+ENCUT    = 600                          # cutoff energy for the planewave basis set in eV
+PREC     = Normal                       # Precision level
+LWAVE    = .FALSE.
+LCHARG   = .FALSE.
+ADDGRID  = .TRUE.                       # Increase grid; helps GGA convergence
+ 
+# Electronic Relaxation
+ISMEAR   = 0                            # Gaussian smearing (ISMEAR=0: kpoints less, not metal)
+SIGMA    = 0.05                         # the width of the smearing in eV
+EDIFF    = 1E-05                        # electronic SC-loop
+NELM     = 200                          # sets the maximum number of electronic SC (selfconsistency) steps which may be performed.
+NELMIN   = 4                            # specifies the minimum number of electronic SCF steps.
+ 
+# Static Calculation
+IBRION   = -1                           # ionic relaxation (conjugate gradient algorithm)
+NSW      = 0                            # the maximum number of ionic steps
+ISYM     = 0                            # Switch symmetry off
+
+NWRITE   = 2                            # For long MD-runs use Nwrite=0 or Nwrite=1)
+ALGO     = VeryFast                     # how wavefunctions are optimized: select the type of GW calculations
+
+NCORE    = 24
+
+#ISIF    = 2                            # stress tensor is calculated
+#PSTRESS = 0                            # no Pulay corrections are added to the stress tensor
+LORBIT   = 11
+
+# determines the number of k-points if the KPOINTS file is not present
+KSPACING = 1.0                          # Gamma 1 1 1
+KGAMMA   = .TRUE.

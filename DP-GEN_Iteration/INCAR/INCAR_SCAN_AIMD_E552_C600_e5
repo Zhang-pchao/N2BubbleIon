@@ -1,0 +1,63 @@
+SYSTEM=N2-H2O-Ion
+
+METAGGA =  SCAN
+LASPH  = .TRUE.
+# IVDW   =  12           (DFT-D3 method of method with BJ damping)
+ 
+# Global Parameters
+NELECT   =  552
+# ISTART =  0            (Read existing wavefunction; if there)
+# ISPIN  =  1            (Spin non-polarised DFT)
+# ICHARG =  2         (Non-self-consistent: GGA/LDA band structures)
+LREAL  = A       (Projection operators: automatic)
+ENCUT  =  600        (Cut-off energy for plane wave basis set, in eV)
+PREC   =  Normal       (Precision level)
+LWAVE  = .FALSE.        (Write WAVECAR or not)
+LCHARG = .FALSE.        (Write CHGCAR or not)
+ADDGRID= .TRUE.        (Increase grid; helps GGA convergence)
+
+# LVTOT  = .TRUE.      (Write total electrostatic potential into LOCPOT or not)
+# LVHAR  = .TRUE.      (Write ionic + Hartree electrostatic potential into LOCPOT or not)
+# NELECT =             (No. of electrons: charged cells; be careful)
+# LPLANE = .TRUE.      (Real space distribution; supercells)
+# NPAR   = 4           (Max is no. nodes; don't set for hybrids)
+# Nwrite = 2           (Medium-level output)
+# KPAR   = 2           (Divides k-grid into separate groups)
+# NGX    = 500         (FFT grid mesh density for nice charge/potential plots)
+# NGY    = 500         (FFT grid mesh density for nice charge/potential plots)
+# NGZ    = 500         (FFT grid mesh density for nice charge/potential plots)
+ 
+# Electronic Relaxation
+ISMEAR =  0
+SIGMA  =  0.05
+EDIFF  =  1E-05
+NELM   =  200 
+
+# Molecular Dynamics
+IBRION =  0            (Activate MD)
+NSW    =  2000          (Max ionic steps)
+# EDIFFG = -5E-03        (Ionic convergence; eV/A)
+POTIM  =  0.5            (Timestep in fs)
+SMASS  =  0            (MD Algorithm: -3-microcanonical ensemble; 0-canonical ensemble)
+TEBEG  =     300     (Start temperature K)
+TEEND  =     300     (Final temperature K)
+MDALGO =  2          (Nose-Hoover Thermostat)
+ISYM   =  0          (Switch symmetry off)
+NWRITE =  2            (For long MD-runs use Nwrite=0 or Nwrite=1)
+ALGO   =  VeryFast
+
+
+NBLOCK   =  1
+KBLOCK   =  100
+MAXMIX   =  100
+
+NCORE   =  20
+
+# ISIF   =  2
+LORBIT   =  11
+
+# LSUBROT   =  
+
+# KSPACING determines the number of k-points if the KPOINTS file is not present
+KSPACING = 1.0 # Gamma 1 1 1
+KGAMMA = .TRUE.
