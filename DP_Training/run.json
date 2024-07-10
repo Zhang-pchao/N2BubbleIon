@@ -94,10 +94,10 @@
 			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2O/init.003",
 			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2O/init.004",
 
-			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/waterion_testset_aimd_dump2/1H3O",
-			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/waterion_testset_aimd_dump2/2H3O",
-			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/waterion_testset_aimd_dump2/1OH",
-			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/waterion_testset_aimd_dump2/2OH",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/aimd_dump2/1H3O",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/aimd_dump2/2H3O",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/aimd_dump2/1OH",
+			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/H2OIon/aimd_dump2/2OH",
 
 			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix/init.000",
 			"/lustre/scratch/scratch/ucemfen/OptBubbleIon/Data/mix/init.001",
