@@ -4,9 +4,9 @@
 
 # Dataset and model
 
-The dataset for training or testing the DP model is uploaded to [AIS Square](https://www.aissquare.com/datasets/detail?pageType=datasets&name=SCAN_H2O_H3O_OH_N2_Nanobubble&id=261), [Zenodo](https://zenodo.org/records/14308794) and [Google Drive](https://drive.google.com/drive/folders/1OD9fNfvbNUvVu4je3h6M0qgWRr8xZDAa?usp=drive_link).
+The dataset for training or testing the DP model is uploaded to [AIS Square](https://www.aissquare.com/datasets/detail?pageType=datasets&name=SCAN_H2O_H3O_OH_N2_Nanobubble&id=261) and [Zenodo](https://zenodo.org/records/14308794).
 
-The compressed DP model is uploaded to [AIS Square](https://www.aissquare.com/models/detail?pageType=models&name=SCAN_H2O_H3O_OH_N2_Nanobubble&id=256), [Zenodo](https://zenodo.org/records/14308794) and [Google Drive](https://drive.google.com/drive/folders/1OD9fNfvbNUvVu4je3h6M0qgWRr8xZDAa?usp=drive_link).
+The compressed DP model is uploaded to [AIS Square](https://www.aissquare.com/models/detail?pageType=models&name=SCAN_H2O_H3O_OH_N2_Nanobubble&id=256) and [Zenodo](https://zenodo.org/records/14308794).
 
 # Packages Used
 
