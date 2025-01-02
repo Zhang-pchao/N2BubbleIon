@@ -8,6 +8,8 @@ The dataset for training or testing the DP model is uploaded to [AIS Square](htt
 
 The compressed DP model is uploaded to [AIS Square](https://www.aissquare.com/models/detail?pageType=models&name=SCAN_H2O_H3O_OH_N2_Nanobubble&id=256) and [Zenodo](https://zenodo.org/records/14308794).
 
+In the [INCAR file](https://github.com/Zhang-pchao/N2BubbleIon/tree/main/DP-GEN_Iteration/INCAR), the charge of H₃O⁺ or OH⁻ is controlled by the NELECT keyword, which sets the number of electrons. All bulk subsystems in the DP datasets are neutral because of a homogeneous background charge. As shown in [VASP Wiki](https://www.vasp.at/wiki/index.php/NELECT), if the number of electrons is not compatible with the number derived from the valence and the number of atoms a homogeneous background charge is assumed. If the number of ions specified in the POSCAR file is 0 and NELECT=n, then the energy of a homogeneous electron gas is calculated.
+
 # Packages Used
 
 vasp_v5.4.4; deepmd-kit_v2.1.5; dpgen_v0.11.0; lammps_v20220623.1
