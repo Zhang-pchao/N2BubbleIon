@@ -12,13 +12,8 @@ Hydroxide and Hydronium Ions Modulate the Dynamic Evolution of Nitrogen Nanobubb
 
 ```bibtex
 @article{Zhang_JAmChemSoc_2024_v146_p19537,
-  title        = {
-    {Hydroxide and Hydronium Ions Modulate the Dynamic Evolution of Nitrogen
-    Nanobubbles in Water}
-  },
-  author       = {
-    Pengchao Zhang and Changsheng Chen and Muye Feng and Chao Sun and Xuefei Xu
-  },
+  title        = {{Hydroxide and Hydronium Ions Modulate the Dynamic Evolution of Nitrogen Nanobubbles in Water}},
+  author       = {Pengchao Zhang and Changsheng Chen and Muye Feng and Chao Sun and Xuefei Xu},
   year         = 2024,
   journal      = {J. Am. Chem. Soc.},
   volume       = 146,
