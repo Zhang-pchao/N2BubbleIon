@@ -15,6 +15,17 @@ This repository collects the data sets, models, molecular dynamics (MD) inputs, 
 - dpgen_v0.11.0
 - lammps_v20220623.1
 
+## Repository Structure
+
+The directories in this repository are organized to cover data generation, training, molecular dynamics simulations, and post-processing:
+
+- **Analysis_Scripts/** – Python scripts used to post-process MD trajectories. They cover bubble density calculations (`BubbleDensity_each.py`, `BubbleDensity_final.py`), stress analysis (`Bubble_Stress.py`, `Bubble_eachStress.py`), hydrogen-bond statistics (`BubbleHydrogenBonds_each.py`, `BubbleHydrogenBonds_final.py`, `IonHydrogenBonds.py`), ion–nitrogen coordination analysis (`Many_Ions_Find.py`, `N2_neighbor_ion.py`, `N2_neighbor_ion_each.py`, `Ion_neighbor_N2.py`), cluster turnover tracking (`N2Cluster_Turnover_final.py`), trajectory re-centering (`shift_cluster_center_trj.py`), and virial/kinetic energy conversions (`virial_ke2xyz_trj.py`).
+- **DP-GEN_Iteration/** – Input decks for the DP-GEN active learning cycles, including VASP configuration files (`INCAR/INCAR_SCAN_AIMD_E552_C600_e5`, `INCAR/INCAR_SCAN_SP_E552_C600_e5`), example structural templates (`POSCAR/mixIon`, `POSCAR/mix2Ion`), system-specific run settings (`System_index_*` directories with `run.json` files), and the global execution settings (`run_machine.json`).
+- **DP_Training/** – Artifacts from training the DP model, such as the trained frozen model (`frozen_model.pb`), learning curve output (`lcurve.out`), the configuration for launching training (`run.json`), and a representative subset of training data under `partial_dataset/interface/` containing raw boxes, coordinates, energies, forces, atom types, and virials (`*.raw`, `set.000`).
+- **Molecular_Dynamics/** – LAMMPS inputs for running nanobubble simulations. The directory provides system topologies (`D30L55*.data` files for different ion counts and placements), atomic configurations with ion centers (`*_atomic.data`), and the driving script (`in.bubble`).
+
+Use these descriptions as a starting point to locate the files relevant to your workflow—whether you are re-running the DP-GEN iterations, retraining the model, performing MD simulations, or analyzing trajectory data.
+
 ## Related Publication
 
 Hydroxide and Hydronium Ions Modulate the Dynamic Evolution of Nitrogen Nanobubbles in Water. [J. Am. Chem. Soc.](https://pubs.acs.org/doi/10.1021/jacs.4c06641)
@@ -31,14 +42,3 @@ Hydroxide and Hydronium Ions Modulate the Dynamic Evolution of Nitrogen Nanobubb
   doi          = {10.1021/jacs.4c06641},
 }
 ```
-
-## Repository Structure
-
-The directories in this repository are organized to cover data generation, training, molecular dynamics simulations, and post-processing:
-
-- **Analysis_Scripts/** – Python scripts used to post-process MD trajectories. They cover bubble density calculations (`BubbleDensity_each.py`, `BubbleDensity_final.py`), stress analysis (`Bubble_Stress.py`, `Bubble_eachStress.py`), hydrogen-bond statistics (`BubbleHydrogenBonds_each.py`, `BubbleHydrogenBonds_final.py`, `IonHydrogenBonds.py`), ion–nitrogen coordination analysis (`Many_Ions_Find.py`, `N2_neighbor_ion.py`, `N2_neighbor_ion_each.py`, `Ion_neighbor_N2.py`), cluster turnover tracking (`N2Cluster_Turnover_final.py`), trajectory re-centering (`shift_cluster_center_trj.py`), and virial/kinetic energy conversions (`virial_ke2xyz_trj.py`).
-- **DP-GEN_Iteration/** – Input decks for the DP-GEN active learning cycles, including VASP configuration files (`INCAR/INCAR_SCAN_AIMD_E552_C600_e5`, `INCAR/INCAR_SCAN_SP_E552_C600_e5`), example structural templates (`POSCAR/mixIon`, `POSCAR/mix2Ion`), system-specific run settings (`System_index_*` directories with `run.json` files), and the global execution settings (`run_machine.json`).
-- **DP_Training/** – Artifacts from training the DP model, such as the trained frozen model (`frozen_model.pb`), learning curve output (`lcurve.out`), the configuration for launching training (`run.json`), and a representative subset of training data under `partial_dataset/interface/` containing raw boxes, coordinates, energies, forces, atom types, and virials (`*.raw`, `set.000`).
-- **Molecular_Dynamics/** – LAMMPS inputs for running nanobubble simulations. The directory provides system topologies (`D30L55*.data` files for different ion counts and placements), atomic configurations with ion centers (`*_atomic.data`), and the driving script (`in.bubble`).
-
-Use these descriptions as a starting point to locate the files relevant to your workflow—whether you are re-running the DP-GEN iterations, retraining the model, performing MD simulations, or analyzing trajectory data.
